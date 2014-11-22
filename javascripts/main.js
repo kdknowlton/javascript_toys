@@ -4,11 +4,11 @@ function calculate() {
   var input_span = document.getElementById("shunting-input")
   var tokenized_span = document.getElementById("shunting-tokenized")
   var output_span = document.getElementById("shunting-result")
-  tokenized = tokenize_expression(input.value)
+  var tokenized = tokenize_expression(input_span.value)
   tokenized_span.innerHTML = tokenized
-  postfixed = shunting_yard(tokenized)
-  result = calculate_rpn(postfixed)
-  output.innerHTML = result
+  var postfixed = shunting_yard(tokenized)
+  var result = calculate_rpn(postfixed)
+  output_span.innerHTML = result
 }
 
 function tokenize_expression(expression_string) {
