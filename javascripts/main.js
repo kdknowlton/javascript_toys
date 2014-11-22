@@ -21,6 +21,9 @@ function tokenize_expression(expression_string) {
       expression_array[expression_array.length] = /[\+\-\*\/]/.exec(expression_string)
       expression_string = expression_string.replace(/[\+\-\*\/]/, '')
     }
+    else {
+      return new Array()
+    }
   }
   return expression_array
 }
