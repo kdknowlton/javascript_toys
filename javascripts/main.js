@@ -12,18 +12,20 @@ function calculate() {
 function tokenize_expression(expression_string) {
   var expression_string = expression_string.replace(/ /g, '')
   var expression_array = new Array()
+  var tokens = new Array(
+      /d+/,
+      /[\+\-\*\/\(\)]/
+    )
   while (expression_string.length > 0) {
-    if (expression_string.search(/\d+/) == 0) {
-      expression_array[expression_array.length] = /\d+/.exec(expression_string)
-      expression_string = expression_string.replace(/\d+/, '')
+    for (i=0, i < tokens.length, i++) {
+      regex = tokens[i]
+      if (expression_string.search(regex) == 0) {
+        expression_array[expression_array.length] = regex.exec(expression_string)
+        expression_string = expression_string.replace(regex, '')
+        continue
+      }
     }
-    else if (expression_string.search(/[\+\-\*\/]/) == 0) {
-      expression_array[expression_array.length] = /[\+\-\*\/]/.exec(expression_string)
-      expression_string = expression_string.replace(/[\+\-\*\/]/, '')
-    }
-    else {
-      return new Array()
-    }
+    return new Array()
   }
   return expression_array
 }
