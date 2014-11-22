@@ -13,9 +13,10 @@ function tokenize_expression(expression_string) {
   var expression_string = expression_string.replace(/ /g, '')
   var expression_array = new Array()
   var tokens = new Array(
-      /d+/,
-      /[\+\-\*\/\(\)]/
-    )
+    /d+/,
+    /[\+\-\*\/\(\)]/
+  )
+  var regex
   while (expression_string.length > 0) {
     for (i=0; i < tokens.length; i++) {
       regex = tokens[i]
