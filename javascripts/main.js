@@ -14,8 +14,8 @@ function tokenize_expression(expression_string) {
   var expression_array = new Array()
   while (expression_string.length > 0) {
     if (expression_string.search(/\d+/) == 0) {
-      expression_array[expression_array.length] = /d+/.exec(expression_string)
-      expression_string = expression_string.replace(/d+/, '')
+      expression_array[expression_array.length] = /\d+/.exec(expression_string)
+      expression_string = expression_string.replace(/\d+/, '')
     }
     else if (expression_string.search(/[\+\-\*\/]/) == 0) {
       expression_array[expression_array.length] = /[\+\-\*\/]/.exec(expression_string)
