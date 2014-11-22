@@ -9,7 +9,7 @@ function calculate() {
   output.innerHTML = result
 }
 
-function tokenize_expression(expresion_string) {
+function tokenize_expression(expression_string) {
   expression_string = expression_string.replace(/ /g, '')
   expression_array = new Array()
   while (expression_string.length > 0) {
