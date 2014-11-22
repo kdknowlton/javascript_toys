@@ -17,7 +17,7 @@ function tokenize_expression(expression_string) {
       /[\+\-\*\/\(\)]/
     )
   while (expression_string.length > 0) {
-    for (i=0, i < tokens.length, i++) {
+    for (i=0; i < tokens.length; i++) {
       regex = tokens[i]
       if (expression_string.search(regex) == 0) {
         expression_array[expression_array.length] = regex.exec(expression_string)
