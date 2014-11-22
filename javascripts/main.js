@@ -19,13 +19,13 @@ function tokenize_expression(expression_string) {
   var regex
   var found
   while (expression_string.length > 0) {
-    found = False
+    found = false
     for (i=0; i < tokens.length; i++) {
       regex = tokens[i]
       if (expression_string.search(regex) == 0) {
         expression_array[expression_array.length] = regex.exec(expression_string)
         expression_string = expression_string.replace(regex, '')
-        found = True
+        found = true
       }
     }
     if (!found) {
