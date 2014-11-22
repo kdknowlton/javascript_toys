@@ -13,7 +13,7 @@ function tokenize_expression(expression_string) {
   var expression_string = expression_string.replace(/ /g, '')
   var expression_array = new Array()
   var tokens = new Array(
-    /d+/,
+    /\d+/,
     /[\+\-\*\/\(\)]/
   )
   var regex
