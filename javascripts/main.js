@@ -10,8 +10,8 @@ function calculate() {
 }
 
 function tokenize_expression(expression_string) {
-  expression_string = expression_string.replace(/ /g, '')
-  expression_array = new Array()
+  var expression_string = expression_string.replace(/ /g, '')
+  var expression_array = new Array()
   while (expression_string.length > 0) {
     if (expression_string.search(/d+/) == 0) {
       expression_array[expression_array.length] = /d+/.exec(expression_string)
