@@ -1,9 +1,11 @@
 console.log('This would be the main JS file.');
 
 function calculate() {
-  var input = document.getElementById("equation-in")
-  var output = document.getElementById("equation-out")
+  var input_span = document.getElementById("shunting-input")
+  var tokenized_span = document.getElementById("shunting-tokenized")
+  var output_span = document.getElementById("shunting-result")
   tokenized = tokenize_expression(input.value)
+  tokenized_span.innerHTML = tokenized
   postfixed = shunting_yard(tokenized)
   result = calculate_rpn(postfixed)
   output.innerHTML = result
