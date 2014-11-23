@@ -63,6 +63,7 @@ function shunting_yard(infix_expression) {
       token = stack.pop()
       while (token != '(') {
         postfix_expression.push(token)
+        token = stack.pop()
       }
     }
     else {
