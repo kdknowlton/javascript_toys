@@ -13,11 +13,11 @@ function calculate() {
 
 function tokenize_expression(expression_string) {
   var expression_string = expression_string.replace(/ /g, '')
-  var expression_array = new Array()
-  var tokens = new Array(
+  var expression_array = []
+  var tokens = [
     /\d+/,
     /[\+\-\*\/\(\)]/
-  )
+  ]
   var regex
   var found
   while (expression_string.length > 0) {
@@ -31,14 +31,59 @@ function tokenize_expression(expression_string) {
       }
     }
     if (!found) {
-      return new Array()
+      return []
     }
   }
   return expression_array
 }
 
 function shunting_yard(infix_expression) {
-  postfix_expression = infix_expression
+  var postfix_expression = []
+  var stack = []
+  var precedence = {
+  }
+  precedence["+"] = 2
+  precedence["-"] = 2
+  precedence["*"] = 3
+  precedence["/"] = 3
+  precedence["^"] = 4
+  for (i=0; i < infix_expression.length; i++) {
+    token = infix_expression[i]
+    number = parseInt(token)
+    if (!isNaN(number)) {
+      postfix_expression.push(number)
+      continue
+    }
+    else if (token == '(') {
+      stack.push(token)
+    }
+    else if (token == ')') {
+      token = stack.pop()
+      while (token != '(') {
+        postfix_expression.push(token)
+      }
+    }
+    else {
+      while (stack.length > 0){
+        check = stack.pop()
+        if (check == '('){
+          stack.push(check)
+          break
+        }
+        else if (precedence[check] < precedence[token]) {
+          stack.push(check)
+          break
+        }
+        else {
+          postfix_expression.push(check)
+        }
+      }
+      stack.push(token)
+    }
+  }
+  while (stack.length > 0) {
+    postfix_expression.push(stack.pop())
+  }
   return postfix_expression
 }
 
