@@ -3,10 +3,12 @@ console.log('This would be the main JS file.');
 function calculate() {
   var input_span = document.getElementById("shunting-input")
   var tokenized_span = document.getElementById("shunting-tokenized")
+  var postfix_span = document.getElementById("shunting-postfix")
   var output_span = document.getElementById("shunting-result")
   var tokenized = tokenize_expression(input_span.value)
   tokenized_span.innerHTML = tokenized
   var postfixed = shunting_yard(tokenized)
+  postfix_span.innerHTML = postfixed.join(" ")
   var result = calculate_rpn(postfixed)
   output_span.innerHTML = result
 }
