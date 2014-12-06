@@ -27,7 +27,7 @@ function tokenize_expression(expression_string) {
     for (i=0; i < tokens.length; i++) {
       regex = tokens[i]
       if (expression_string.search(regex) == 0) {
-        expression_array[expression_array.length] = regex.exec(expression_string)
+        expression_array[expression_array.length] = regex.exec(expression_string)[0]
         expression_string = expression_string.replace(regex, '')
         found = true
       }
