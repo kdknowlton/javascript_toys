@@ -96,10 +96,10 @@ function calculate_rpn(expression) {
   var operand2
   var next_token
   var operators = {}
-  operators['+'] = function(x, y) {x + y}
-  operators['-'] = function(x, y) {x - y}
-  operators['*'] = function(x, y) {x * y}
-  operators['/'] = function(x, y) {x / y}
+  operators['+'] = function(x, y) {return x + y}
+  operators['-'] = function(x, y) {return x - y}
+  operators['*'] = function(x, y) {return x * y}
+  operators['/'] = function(x, y) {return x / y}
   operators['^'] = Math.pow
   
   for (i=0; i < expression.length; i++) {
