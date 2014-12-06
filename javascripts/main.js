@@ -104,7 +104,7 @@ function calculate_rpn(expression) {
   
   for (i=0; i < expression.length; i++) {
     next_token = expression[i]
-    if (typeof next_token === number) {
+    if (typeof next_token == 'number') {
       stack.push(next_token)
     }
     else {
