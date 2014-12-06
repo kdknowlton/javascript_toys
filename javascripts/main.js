@@ -91,7 +91,7 @@ function shunting_yard(infix_expression) {
 }
 
 function calculate_rpn(expression) {
-  var stack
+  var stack = []
   var operand1
   var operand2
   var next_token
