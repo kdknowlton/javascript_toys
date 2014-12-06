@@ -18,7 +18,7 @@ function tokenize_expression(expression_string) {
   var expression_array = []
   var tokens = [
     /\d+/,
-    /[\+\-\*\/\(\)]/
+    /[\+\-\*\/\(\)\^]/
   ]
   var regex
   var found
