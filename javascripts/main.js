@@ -91,5 +91,28 @@ function shunting_yard(infix_expression) {
 }
 
 function calculate_rpn(expression) {
-  return expression
+  var stack
+  var operand1
+  var operand2
+  var next_token
+  var operators = {}
+  operators['+'] = function(x, y) {x + y}
+  operators['-'] = function(x, y) {x - y}
+  operators['*'] = function(x, y) {x * y}
+  operators['/'] = function(x, y) {x / y}
+  operators['^'] = Math.pow
+  
+  for (i=0; i < expression.length; i++) {
+    next_token = expression[i]
+    if (typeof next_token === number) {
+      stack.push(next_token)
+    }
+    else {
+      operand2 = stack.pop()
+      operand1 = stack.pop()
+      stack.push(operators[next_token](operand1, operand2))
+    }
+  }
+  
+  return stack.pop()
 }
