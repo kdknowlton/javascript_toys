@@ -50,7 +50,9 @@ table { position:absolute; width:100%; height:100%; top:0px; left:0px;}
 
 function dotime(){
 	
-	$("body").css({"transition": "all 0.8s", "-webkit-transition": "all 0.8s"});
+	// $("body").css({"transition": "all 0.8s", "-webkit-transition": "all 0.8s"});
+	document.body.style.transition = "all 0.8s";
+	document.body.style.-webkit-transition = "all 0.8s";
 	
 	var d = new Date();
 	var hours = d.getHours();
