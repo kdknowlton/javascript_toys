@@ -69,8 +69,10 @@ function dotime(){
 	
 	var hex = "#" + hours + mins + secs;
 	
-	$("#t").html(hours +" : "+ mins +" : "+ secs);
-	$("#h").html(hex);
+	// $("#t").html(hours +" : "+ mins +" : "+ secs);
+	document.getElementById('t').innerHTML = hours +" : "+ mins +" : "+ secs;
+	// $("#h").html(hex);
+	document.getElementById('h').innerHTML = hex;
 	
 	document.body.style.background = hex;
 	
