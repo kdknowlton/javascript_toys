@@ -56,16 +56,8 @@ function dotime(){
 	var mins = d.getMinutes();
 	var secs = d.getSeconds();
 	
-	if (hours < 10){hours = "0" + hours};
-	if (mins < 10){mins = "0" + mins};
-	if (secs < 10){secs = "0" + secs};
-	
-	hours.toString();
-	mins.toString();
-	secs.toString();
-	
-	var hex = "#" + hours + mins + secs;
-	
+	hex = rgbToHex(hours * 10, minutes * 4, seconds * 4
+	)
 	document.getElementById('t').innerHTML = hours +" : "+ mins +" : "+ secs;
 	document.getElementById('h').innerHTML = hex;
 	
@@ -74,6 +66,14 @@ function dotime(){
 	setTimeout(function(){ dotime();}, 1000);
 }
 
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
 </script>
 
 </html>
