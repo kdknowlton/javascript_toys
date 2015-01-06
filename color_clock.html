@@ -56,8 +56,12 @@ function dotime(){
 	var mins = d.getMinutes();
 	var secs = d.getSeconds();
 	
-	hex = rgbToHex(hours * 10, mins * 4, secs * 4
-	)
+	hex = rgbToHex(hours * 10, mins * 4, secs * 4);
+	
+	if (hours < 10){hours = "0" + hours};
+	if (mins < 10){mins = "0" + mins};
+	if (secs < 10){secs = "0" + secs};
+	
 	document.getElementById('t').innerHTML = hours +" : "+ mins +" : "+ secs;
 	document.getElementById('h').innerHTML = hex;
 	
